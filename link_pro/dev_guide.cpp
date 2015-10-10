@@ -131,3 +131,17 @@ typedef graph_traits<Graph>::vertex_descriptor Vertex;
 typedef property_map<Graph, vertex_bundle_t>::type VerAll;
 
 class custom_dfs_visitor;
+QSqlRelationalTableModel
+
+target_kind(
+	id{0,1,2,3}
+	name {"static_target",...}
+}
+
+net_kind(
+	id{0,1,2}
+	name{"http", "tcp", ...}
+)
+
+
+select target.id, target.name, target.kind, attr1.attr1, attr2.attr2 from target left join attr1 on target.id = attr1.id left join attr2 on target.id = attr2.id;
