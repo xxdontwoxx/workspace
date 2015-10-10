@@ -1,29 +1,45 @@
-<UI version="4.0" >
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
  <class>link_proClass</class>
- <widget class="QMainWindow" name="link_proClass" >
-  <property name="objectName" >
-   <string notr="true">link_proClass</string>
-  </property>
-  <property name="geometry" >
+ <widget class="QMainWindow" name="link_proClass">
+  <property name="geometry">
    <rect>
-	<x>0</x>
-	<y>0</y>
-	<width>600</width>
-	<height>400</height>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>400</height>
    </rect>
   </property>
-  <property name="windowTitle" >
+  <property name="windowTitle">
    <string>link_pro</string>
   </property>
-  <widget class="QMenuBar" name="menuBar" />
-  <widget class="QToolBar" name="mainToolBar" />
-  <widget class="QWidget" name="centralWidget" />
-  <widget class="QStatusBar" name="statusBar" />
+  <widget class="QWidget" name="centralWidget"/>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>600</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>数据库</string>
+    </property>
+    <addaction name="dbaction"/>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+  <action name="dbaction">
+   <property name="text">
+    <string>数据库管理</string>
+   </property>
+  </action>
  </widget>
- <layoutDefault spacing="6" margin="11" />
- <pixmapfunction></pixmapfunction>
+ <layoutdefault spacing="6" margin="11"/>
  <resources>
-   <include location="link_pro.qrc"/>
+  <include location="link_pro.qrc"/>
  </resources>
  <connections/>
-</UI>
+</ui>

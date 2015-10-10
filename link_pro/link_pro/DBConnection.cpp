@@ -36,3 +36,7 @@ QSqlRelationalTableModel *DBConnection::getModel(const QString &name)
 {
 	return mModelMap[name];
 }
+QMap<QString, QSqlRelationalTableModel*> &DBConnection::getModels()
+{
+	return mModelMap;
+}

@@ -21,6 +21,7 @@ public:
 	bool init();
 	QSqlDatabase* getDBCon();
 	QSqlRelationalTableModel *getModel(const QString&);
+	QMap<QString, QSqlRelationalTableModel*> &getModels();
 private:
 	QSqlDatabase mDB;
 	QMap<QString, QSqlRelationalTableModel*> mModelMap;
