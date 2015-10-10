@@ -1,5 +1,29 @@
-1. 主窗口添加menu。
-2. menu1 -> 查看表信息。
+配置文件的用途:
+	1. 设置表名和字段名
+	//2. 说明外键所指向的表和字段
+
+加载配置文件
+	table{
+		column{
+			name,
+			showname,
+		}
+		name,
+		showName
+		map<name, column> cols;
+	}
+	map<name, table> tables;
+	while(hasNext()){
+		while(hasNext()){
+			table.cols.insert
+		}
+		tables.insert
+	}
+	
+1.	按表查看表详细信息，并修改保存，排序
+2.	在表内查询
+3.	QB文件的合并和导入
+
 
 	QSqlRelationalTableModel *model1 = DBConnection::Singleton()->getModel("target");
 	model1->select();
