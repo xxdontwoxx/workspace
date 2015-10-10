@@ -35,7 +35,7 @@ link_pro::link_pro(QWidget *parent, Qt::WFlags flags)
 {
 	ui.setupUi(this);
 	DBConnection::Singleton()->init();
-	QSqlTableModel *model1 = DBConnection::Singleton()->getModel("target");
+	QSqlRelationalTableModel *model1 = DBConnection::Singleton()->getModel("target");
 	model1->select();
 	int modelSize1 = model1->rowCount();
 	Graph g;
@@ -45,8 +45,7 @@ link_pro::link_pro(QWidget *parent, Qt::WFlags flags)
 		Vertex v = add_vertex(id, g);
 		mapVertex[id] = v;
 	}
-	QSqlTableModel *model = DBConnection::Singleton()->getModel("link");
-	model->select();
+	QSqlRelationalTableModel *model = DBConnection::Singleton()->getModel("link");
 	int modelSize = model->rowCount();
 	property_map<Graph, edge_weight_t>::type weightmap = get(edge_weight, g);
 	for(int i = 0; i < modelSize; ++i){
@@ -71,9 +70,18 @@ link_pro::link_pro(QWidget *parent, Qt::WFlags flags)
 	//}
 	model->setHeaderData(0, Qt::Horizontal, QObject::tr("ID"));
 	model->setHeaderData(1, Qt::Horizontal, QObject::tr("IN_ID"));
+	//QSqlRelation r1= QSqlRelation("target", "id", "name");
+	model->setRelation(1, QSqlRelation("target", "id", "name"));
 	model->setHeaderData(2, Qt::Horizontal, QObject::tr("OUT_ID"));
+	model->setRelation(2, QSqlRelation("target", "id", "name"));
+	model->setHeaderData(3, Qt::Horizontal, QObject::tr("NAME"));
+	model->setRelation(3, QSqlRelation("target", "id", "name"));
+	model->setHeaderData(4, Qt::Horizontal, QObject::tr("KIND"));
+	model->setRelation(4, QSqlRelation("target", "id", "kind"));
+	model->select();
 	mView = new QTableView;
 	mView->setModel(model);
+	mView->setItemDelegate(new QSqlRelationalDelegate(mView));
 	mView->show();
 
 	custom_dfs_visitor vis;
@@ -90,5 +98,11 @@ link_pro::link_pro(QWidget *parent, Qt::WFlags flags)
 link_pro::~link_pro()
 {
 
+}
+
+void link_pro::closeEvent(QCloseEvent *close)
+{
+	QSqlRelationalTableModel *model = DBConnection::Singleton()->getModel("link");
+	model->submit();
 }
 

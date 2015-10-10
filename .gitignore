@@ -1,9 +1,9 @@
 *.*
 !*.cpp
 !*.h
-!*.sln
+#!*.sln
 !*.qrc
 !*.ui
-!*.vcproj
+#!*.vcproj
 !*.db
 !*.gitignore

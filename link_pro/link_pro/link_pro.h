@@ -5,7 +5,8 @@
 #include "ui_link_pro.h"
 
 #include "DBConnection.h"
-#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
+#include <QSqlRelationalDelegate>
 #include <QTableView>
 #include <QSqlRecord>
 #include <QDebug>
@@ -40,6 +41,8 @@ private:
 	
 	void initModel();
 	void initView();
+
+	virtual void closeEvent(QCloseEvent *);
 };
 
 #endif // LINK_PRO_H

@@ -20,7 +20,7 @@ bool DBConnection::init()
 	}
 	foreach(QString tableName, mDB.tables())
 	{
-		QSqlTableModel *temp = new QSqlTableModel(this, mDB);
+		QSqlRelationalTableModel *temp = new QSqlRelationalTableModel(this, mDB);
 		temp->setTable(tableName);
 		mModelMap.insert(tableName, temp);
 	}
@@ -32,7 +32,7 @@ QSqlDatabase *DBConnection::getDBCon()
 	return &mDB;
 }
 
-QSqlTableModel *DBConnection::getModel(const QString &name)
+QSqlRelationalTableModel *DBConnection::getModel(const QString &name)
 {
 	return mModelMap[name];
 }

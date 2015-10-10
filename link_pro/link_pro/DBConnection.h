@@ -6,7 +6,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QMessageBox>
-#include <QSqlTableModel>
+#include <QSqlRelationalTableModel>
 #include <QMap>
 
 class DBConnection : public QObject
@@ -20,10 +20,10 @@ public:
 	
 	bool init();
 	QSqlDatabase* getDBCon();
-	QSqlTableModel *getModel(const QString&);
+	QSqlRelationalTableModel *getModel(const QString&);
 private:
 	QSqlDatabase mDB;
-	QMap<QString, QSqlTableModel*> mModelMap;
+	QMap<QString, QSqlRelationalTableModel*> mModelMap;
 
 };
 #endif DBCONNECTION_H
