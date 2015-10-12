@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'dbview.h'
 **
-** Created: Sat Oct 10 15:15:54 2015
+** Created: Mon Oct 12 14:12:18 2015
 **      by: The Qt Meta Object Compiler version 63 (Qt 4.8.4)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -23,7 +23,7 @@ static const uint qt_meta_data_DBView[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -33,6 +33,8 @@ static const uint qt_meta_data_DBView[] = {
  // slots: signature, parameters, type, tag, flags
       25,    8,    7,    7, 0x0a,
       82,    7,    7,    7, 0x0a,
+     107,    7,    7,    7, 0x0a,
+     134,  128,    7,    7, 0x0a,
 
        0        // eod
 };
@@ -40,7 +42,8 @@ static const uint qt_meta_data_DBView[] = {
 static const char qt_meta_stringdata_DBView[] = {
     "DBView\0\0current,previous\0"
     "on_currentItemChanged(QListWidgetItem*,QListWidgetItem*)\0"
-    "closeEvent(QCloseEvent*)\0"
+    "closeEvent(QCloseEvent*)\0on_actions(QAction*)\0"
+    "index\0on_tableview_doubleclick(QModelIndex)\0"
 };
 
 void DBView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -51,6 +54,8 @@ void DBView::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->on_currentItemChanged((*reinterpret_cast< QListWidgetItem*(*)>(_a[1])),(*reinterpret_cast< QListWidgetItem*(*)>(_a[2]))); break;
         case 1: _t->closeEvent((*reinterpret_cast< QCloseEvent*(*)>(_a[1]))); break;
+        case 2: _t->on_actions((*reinterpret_cast< QAction*(*)>(_a[1]))); break;
+        case 3: _t->on_tableview_doubleclick((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         default: ;
         }
     }
@@ -88,9 +93,9 @@ int DBView::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
 }
